@@ -1,0 +1,109 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  /*font-weight: 400;*/
+
+  /*color-scheme: light dark;*/
+  /*color: rgba(255, 255, 255, 0.87);*/
+  /*background-color: #242424;*/
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --colors-background-gray-100-main: #F2F2F2;
+  --colors-background-blue-300: #BAD0E2;
+  --colors-text-black-300: #333333;
+  --colors-outline-gray-900-border: #79747E;
+}
+
+#root {
+  min-width: 320px;
+  max-width: 320px;
+  min-height: 480px;
+  max-height: 480px;
+
+}
+
+.App {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: inherit;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.footer {
+  flex-shrink: 0;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  text-align: left;
+}
+
+.fonts_roboto_14_500 {
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  color: var(--colors-text-black-300);
+}
+
+.fonts_roboto_12_500 {
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: .5px;
+  text-align: center;
+  color: var(--colors-text-black-300);
+}
+
+.fonts_roboto_14_400 {
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  text-align: left;
+}
+
+
+.container {
+  padding: 8px;
+}
+
+.main_menu_btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
