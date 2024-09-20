@@ -1,3 +1,4 @@
+import {useSelector} from "react-redux";
 
 function Header() {
 
@@ -12,9 +13,11 @@ function Header() {
         borderBottom: '1px solid var(--colors-outline-gray-900-border)',
     }
 
+    const headerText = useSelector((state) => state.menuSLice.toggleHeaderText);
+
     return (
         <header className={'fonts_roboto_14_500 container'} style={style}>
-            <h1 className='header_title'>Меню</h1>
+            <h1 className='header_title'>{headerText}</h1>
         </header>
     );
 }

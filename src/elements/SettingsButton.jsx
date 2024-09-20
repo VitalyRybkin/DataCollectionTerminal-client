@@ -1,5 +1,5 @@
 import {useDispatch} from "react-redux";
-import {menuSwitch} from "../reducers/MenuReducer.jsx";
+import {headerText, menuSwitch} from "../reducers/MenuReducer.jsx";
 import SettingButton1 from "./SettingButton1.jsx";
 import SettingButton2 from "./SettingButton2.jsx";
 
@@ -21,15 +21,18 @@ function SettingsButton() {
     const dispatch = useDispatch();
 
     function handleClick() {
+
         const menuList = [
             <SettingButton1/>,
             <SettingButton2/>
         ]
+
         dispatch(menuSwitch(menuList))
+        dispatch(headerText("Настройки"))
     }
 
     return (
-        <div>
+        <div className='setting_btn'>
             <button onClick={() => handleClick()} className="container fonts_roboto_14_400 main_menu_btn">
                 <SettingsIcon/>
                 Настройки

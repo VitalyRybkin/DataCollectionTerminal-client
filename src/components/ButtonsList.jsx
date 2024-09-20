@@ -1,16 +1,5 @@
-import CaseButton from "../elements/CaseButton.jsx";
-import SettingsButton from "../elements/SettingsButton.jsx";
-import InfoButton from "../elements/InfoButton.jsx";
-
 function ButtonsList(props) {
-
-    // const buttons = [
-    //     <CaseButton/>,
-    //     <SettingsButton/>,
-    //     <InfoButton/>,
-    // ]
-
-    const buttonItems = props.buttonsList.map(button => <li>{button}</li>)
+    const buttonItems = props.buttonsList.map(button => <li key={crypto.randomUUID()}>{button}</li>)
 
     return (
         <ul>

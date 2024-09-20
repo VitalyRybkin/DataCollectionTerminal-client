@@ -1,5 +1,3 @@
-// import {useDispatch} from "react-redux";
-// import {menuSwitch} from "../reducers/MenuReducer.jsx";
 
 function CaseIcon() {
     return (

@@ -18,20 +18,26 @@ class MenuDataStorage {
 
 export const menuDataStorage = new MenuDataStorage([]);
 
-const initialState = menuDataStorage.menuListItemsData;
+const initialState = {
+    toggleMenuSwitch: menuDataStorage.menuListItemsData,
+    toggleHeaderText: "Меню"
+};
 
 export const menuSLice = createSlice({
     name: "menu",
     initialState,
     reducers: {
         menuSwitch: (state, action) => {
-            return action.payload;
-        }
+            state.toggleMenuSwitch = action.payload;
+        },
+        headerText: (state, action) => {
+            state.toggleHeaderText = action.payload;
+        },
     }
 });
 
 export const {
-    menuSwitch
+    menuSwitch, headerText
 } = menuSLice.actions;
 
 export default menuSLice.reducer;
