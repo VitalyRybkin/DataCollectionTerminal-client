@@ -1,3 +1,6 @@
+// import {useDispatch} from "react-redux";
+// import {menuSwitch} from "../reducers/MenuReducer.jsx";
+
 function CaseIcon() {
     return (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -16,9 +19,15 @@ function CaseIcon() {
 
 function CaseButton() {
 
+    // const dispatch = useDispatch();
+
+    function handleClick() {
+        // dispatch(menuSwitch("settings"))
+    }
+
     return (
         <div>
-            <button className="container fonts_roboto_14_400 main_menu_btn">
+            <button onClick={handleClick} className="container fonts_roboto_14_400 main_menu_btn">
                 <CaseIcon/>
                 Задачи
             </button>

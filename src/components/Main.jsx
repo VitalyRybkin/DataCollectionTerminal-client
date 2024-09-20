@@ -1,4 +1,14 @@
 import ButtonsList from "./ButtonsList.jsx";
+import {useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import SettingButton1 from "../elements/SettingButton1.jsx";
+import SettingButton2 from "../elements/SettingButton2.jsx";
+import {menuSwitch} from "../reducers/MenuReducer.jsx";
+import CaseButton from "../elements/CaseButton.jsx";
+import SettingsButton from "../elements/SettingsButton.jsx";
+import InfoButton from "../elements/InfoButton.jsx";
+
+import {menuDataStorage} from "../reducers/MenuReducer.jsx";
 
 function CaseIcon() {
     return (
@@ -66,6 +76,21 @@ function Main() {
         gap: '10px',
     }
 
+    const dispatch = useDispatch();
+
+    window.addEventListener("load", async () => {
+        const menuList = [
+            <CaseButton/>,
+            <SettingsButton/>,
+            <InfoButton/>
+        ];
+
+        menuDataStorage.menuSetListItemsData = menuList;
+        dispatch(menuSwitch(menuList))
+    });
+
+    const buttonsList = useSelector((state) => state.menuSLice);
+
     return (
         <div className="main" style={style}>
             {/*<button className="container fonts_roboto_14_400" style={btn_style}>*/}
@@ -80,7 +105,7 @@ function Main() {
             {/*    <InfoIcon/>*/}
             {/*    О системе*/}
             {/*</button>*/}
-            <ButtonsList />
+            <ButtonsList buttonsList={buttonsList} />
         </div>
     )
 }

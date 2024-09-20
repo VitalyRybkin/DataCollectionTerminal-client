@@ -2,15 +2,15 @@ import CaseButton from "../elements/CaseButton.jsx";
 import SettingsButton from "../elements/SettingsButton.jsx";
 import InfoButton from "../elements/InfoButton.jsx";
 
-function ButtonsList() {
+function ButtonsList(props) {
 
-    const buttons = [
-        <CaseButton/>,
-        <SettingsButton/>,
-        <InfoButton/>,
-    ]
+    // const buttons = [
+    //     <CaseButton/>,
+    //     <SettingsButton/>,
+    //     <InfoButton/>,
+    // ]
 
-    const buttonItems = buttons.map(button => <li>{button}</li>)
+    const buttonItems = props.buttonsList.map(button => <li>{button}</li>)
 
     return (
         <ul>

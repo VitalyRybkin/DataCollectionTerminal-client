@@ -1,3 +1,8 @@
+import CaseButton from "../elements/CaseButton.jsx";
+import SettingsButton from "../elements/SettingsButton.jsx";
+import InfoButton from "../elements/InfoButton.jsx";
+import {menuDataStorage, menuSwitch} from "../reducers/MenuReducer.jsx";
+import {useDispatch} from "react-redux";
 
 function ScannerIcon() {
     return (
@@ -30,6 +35,8 @@ function BackArrowIcon() {
 
 function FooterMenu() {
 
+    const dispatch = useDispatch();
+
     const styles = {
         display: "flex",
         justifyContent: "space-between",
@@ -46,9 +53,20 @@ function FooterMenu() {
         gap: "5px",
     }
 
+    function handleMainMenuClick() {
+        const menuList = [
+            <CaseButton/>,
+            <SettingsButton/>,
+            <InfoButton/>
+        ];
+
+        menuDataStorage.menuSetListItemsData = menuList;
+        dispatch(menuSwitch(menuList))
+    }
+
     return (
         <div className="footer" style={styles}>
-            <button className="fonts_roboto_12_500" style={btn_style}>
+            <button onClick={handleMainMenuClick} className="fonts_roboto_12_500" style={btn_style}>
                 <MenuIcon/>
                 Меню
             </button>
