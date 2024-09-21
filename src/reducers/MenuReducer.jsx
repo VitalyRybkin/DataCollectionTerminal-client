@@ -1,4 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
+import {MAIN_MENU, setInitialState, SETTINGS} from "./actions.jsx";
 
 class MenuDataStorage {
     constructor(
@@ -19,7 +20,7 @@ class MenuDataStorage {
 export const menuDataStorage = new MenuDataStorage([]);
 
 const initialState = {
-    toggleMenuSwitch: menuDataStorage.menuListItemsData,
+    toggleMenuSwitch: setInitialState,
     toggleHeaderText: "Меню"
 };
 

@@ -2,6 +2,7 @@ import {useDispatch} from "react-redux";
 import {headerText, menuSwitch} from "../reducers/MenuReducer.jsx";
 import SettingButton1 from "./SettingButton1.jsx";
 import SettingButton2 from "./SettingButton2.jsx";
+import {settings} from "../reducers/actions.jsx";
 
 function SettingsIcon() {
     return (

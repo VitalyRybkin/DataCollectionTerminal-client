@@ -7,6 +7,8 @@ import SettingsButton from "../elements/SettingsButton.jsx";
 import InfoButton from "../elements/InfoButton.jsx";
 
 import {menuDataStorage} from "../reducers/MenuReducer.jsx";
+import {mainMenu} from "../reducers/actions.jsx";
+
 
 function Main() {
 
@@ -24,18 +26,18 @@ function Main() {
         gap: '10px',
     }
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
-    window.addEventListener("load", async () => {
-        const menuList = [
-            <CaseButton/>,
-            <SettingsButton/>,
-            <InfoButton/>
-        ];
-
-        menuDataStorage.menuSetListItemsData = menuList;
-        dispatch(menuSwitch(menuList))
-    });
+    // window.addEventListener("load", async () => {
+    //     const menuList = [
+    //         <CaseButton/>,
+    //         <SettingsButton/>,
+    //         <InfoButton/>
+    //     ];
+    //
+    //     menuDataStorage.menuSetListItemsData = menuList;
+    //     dispatch(menuSwitch(menuList))
+    // });
 
     const buttonsList = useSelector((state) => state.menuSLice.toggleMenuSwitch);
 
