@@ -29,6 +29,7 @@ export const menuSLice = createSlice({
     initialState,
     reducers: {
         menuSwitch: (state, action) => {
+            console.log(action.type);
             state.toggleMenuSwitch = action.payload;
         },
         headerText: (state, action) => {

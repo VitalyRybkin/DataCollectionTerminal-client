@@ -16,6 +16,10 @@
   --colors-background-blue-300: #BAD0E2;
   --colors-text-black-300: #333333;
   --colors-outline-gray-900-border: #79747E;
+  --colors-background-gray-500-disabled: #DCD8E0;
+  --colors-text-gray-400: #A8A3AB;
+  --colors-primary-400-main: #2D609B;
+
 }
 
 #root {
