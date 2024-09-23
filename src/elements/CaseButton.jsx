@@ -1,3 +1,6 @@
+import {renderMainContent} from "../reducers/MenuReducer.jsx";
+import {caseMenu} from "../reducers/actions.jsx";
+import {useDispatch} from "react-redux";
 
 function CaseIcon() {
     return (
@@ -17,11 +20,9 @@ function CaseIcon() {
 
 function CaseButton() {
 
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-    function handleClick() {
-        // dispatch(menuSwitch("settings"))
-    }
+    const handleClick = () => dispatch(renderMainContent(caseMenu))
 
     return (
         <div>

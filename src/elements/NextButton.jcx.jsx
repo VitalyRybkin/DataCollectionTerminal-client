@@ -23,7 +23,7 @@ function NextButton() {
     return (
         <div>
             <button className="nextButton" style={isButtonDisabled ? {...disabledStyle, ...style} : {...enabledStyle, ...style}}>
-
+                ПЕРЕЙТИ
             </button>
         </div>
     )

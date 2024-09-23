@@ -1,45 +1,53 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {MAIN_MENU, setInitialState, SETTINGS} from "./actions.jsx";
+import CaseButton from "../elements/CaseButton.jsx";
+import SettingsButton from "../elements/SettingsButton.jsx";
+import InfoButton from "../elements/InfoButton.jsx";
 
-class MenuDataStorage {
-    constructor(
-        menuListItems,
-    ) {
-        this.menuListItems = menuListItems;
-    }
-
-    get menuListItemsData() {
-        return this.menuListItems;
-    }
-
-    set menuSetListItemsData(data) {
-        this.menuListItems = data;
-    }
+const startingMenuData = {
+    mainContent: [<CaseButton/>, <SettingsButton/>, <InfoButton/>],
+    headerContent: ["Меню"],
 }
 
-export const menuDataStorage = new MenuDataStorage([]);
+export let stateStack = [startingMenuData];
 
 const initialState = {
-    toggleMenuSwitch: setInitialState,
-    toggleHeaderText: "Меню"
+    windowContent: startingMenuData,
 };
 
-export const menuSLice = createSlice({
-    name: "menu",
+
+export const mainWindowSlice = createSlice({
+    name: "content",
     initialState,
     reducers: {
-        menuSwitch: (state, action) => {
-            console.log(action.type);
-            state.toggleMenuSwitch = action.payload;
+        renderMainContent: (state, action) => {
+            stateStack.push(action.payload);
+            state.windowContent = action.payload;
         },
-        headerText: (state, action) => {
-            state.toggleHeaderText = action.payload;
+        renderMainMenu: (state) => {
+            if (stateStack.length > 1) {
+                stateStack.splice(1);
+                state.windowContent = {mainContent: startingMenuData.mainContent, headerContent: startingMenuData.headerContent};
+            }
         },
+        renderScanner: (state, action) => {
+            stateStack.push(action.payload);
+            state.windowContent = action.payload;
+        },
+        rollBack: (state) => {
+            if (stateStack.length > 1) {
+                stateStack.pop()
+                const lastState = stateStack[stateStack.length - 1];
+                state.windowContent = {mainContent: lastState.mainContent, headerContent: lastState.headerContent};
+            }
+        }
     }
 });
 
 export const {
-    menuSwitch, headerText
-} = menuSLice.actions;
+    renderMainContent,
+    renderMainMenu,
+    rollBack,
+    renderScanner,
+} = mainWindowSlice.actions;
 
-export default menuSLice.reducer;
+export default mainWindowSlice.reducer;

@@ -1,5 +1,5 @@
 import {useDispatch} from "react-redux";
-import {headerText, menuSwitch} from "../reducers/MenuReducer.jsx";
+import {renderMainContent} from "../reducers/MenuReducer.jsx";
 import SettingButton1 from "./SettingButton1.jsx";
 import SettingButton2 from "./SettingButton2.jsx";
 
@@ -36,8 +36,7 @@ function WarehouseButton() {
             <SettingButton2/>
         ]
 
-        dispatch(menuSwitch(menuList))
-        dispatch(headerText("Складской учет"))
+        dispatch(renderMainContent(menuList))
     }
 
     return (

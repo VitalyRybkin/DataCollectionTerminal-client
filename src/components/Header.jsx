@@ -1,5 +1,6 @@
 import {useSelector} from "react-redux";
 
+
 function Header() {
 
     const style = {
@@ -13,11 +14,18 @@ function Header() {
         borderBottom: '1px solid var(--colors-outline-gray-900-border)',
     }
 
-    const headerText = useSelector((state) => state.menuSLice.toggleHeaderText);
+    const menuStyle = {
+        display: 'flex',
+        alignItems: 'center',
+        gap: '10px'
+    }
+
+    const headerText = useSelector((state) => state.mainWindowSlice.windowContent.headerContent);
+    const mappedHeaderText = headerText.map(item => <li key={crypto.randomUUID()}>{item}</li>)
 
     return (
         <header className={'fonts_roboto_14_500 container'} style={style}>
-            <h1 className='header_title'>{headerText}</h1>
+            <ul className='header_title' style={menuStyle}>{mappedHeaderText}</ul>
         </header>
     );
 }

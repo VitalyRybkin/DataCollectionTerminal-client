@@ -1,8 +1,7 @@
-import CaseButton from "../elements/CaseButton.jsx";
-import SettingsButton from "../elements/SettingsButton.jsx";
-import InfoButton from "../elements/InfoButton.jsx";
-import {headerText, menuDataStorage, menuSwitch} from "../reducers/MenuReducer.jsx";
+
+import {rollBack, renderMainMenu, renderScanner} from "../reducers/MenuReducer.jsx";
 import {useDispatch} from "react-redux";
+import {scanScreen} from "../reducers/actions.jsx";
 
 function ScannerIcon() {
     return (
@@ -51,36 +50,21 @@ function FooterMenu() {
         justifyContent: "center",
         flexDirection: "column",
         gap: "5px",
-    }
-
-    function handleMainMenuClick() {
-        const menuList = [
-            <CaseButton/>,
-            <SettingsButton/>,
-            <InfoButton/>
-        ];
-
-        menuDataStorage.menuSetListItemsData = menuList;
-        dispatch(menuSwitch(menuList))
-        dispatch(headerText("Меню"))
-    }
-
-    function handleBackClick() {
-        dispatch(menuSwitch)
-        dispatch(headerText)
+        padding: "7px"
     }
 
     return (
         <div className="footer" style={styles}>
-            <button onClick={handleMainMenuClick} className="fonts_roboto_12_500" style={btn_style}>
+            <button onClick={() => dispatch(renderMainMenu())
+            } className="fonts_roboto_12_500" style={btn_style}>
                 <MenuIcon/>
                 Меню
             </button>
-            <button className="fonts_roboto_12_500" style={btn_style}>
+            <button onClick={() => dispatch(renderScanner(scanScreen))} className="fonts_roboto_12_500" style={btn_style}>
                 <ScannerIcon/>
                 Сканер
             </button>
-            <button onClick={handleBackClick} className="fonts_roboto_12_500" style={btn_style}>
+            <button onClick={() => dispatch(rollBack())} className="fonts_roboto_12_500" style={btn_style}>
                 <BackArrowIcon/>
                 Назад
             </button>

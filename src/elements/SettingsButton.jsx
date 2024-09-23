@@ -1,8 +1,8 @@
 import {useDispatch} from "react-redux";
-import {headerText, menuSwitch} from "../reducers/MenuReducer.jsx";
+import {renderMainContent} from "../reducers/MenuReducer.jsx";
 import SettingButton1 from "./SettingButton1.jsx";
 import SettingButton2 from "./SettingButton2.jsx";
-import {settings} from "../reducers/actions.jsx";
+import {settingMenu} from "../reducers/actions.jsx";
 
 function SettingsIcon() {
     return (
@@ -21,16 +21,12 @@ function SettingsButton() {
 
     const dispatch = useDispatch();
 
-    function handleClick() {
+    // const handleClick = () => dispatch(renderMainContent({
+    //     mainContent: [<SettingButton1/>, <SettingButton2 />],
+    //     headerContent: "Настройки",
+    // }))
 
-        const menuList = [
-            <SettingButton1/>,
-            <SettingButton2/>
-        ]
-
-        dispatch(menuSwitch(menuList))
-        dispatch(headerText("Настройки"))
-    }
+    const handleClick = () => dispatch(renderMainContent(settingMenu))
 
     return (
         <div className='setting_btn'>
