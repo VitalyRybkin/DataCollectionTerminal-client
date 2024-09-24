@@ -20,12 +20,6 @@ function SettingsIcon() {
 function SettingsButton() {
 
     const dispatch = useDispatch();
-
-    // const handleClick = () => dispatch(renderMainContent({
-    //     mainContent: [<SettingButton1/>, <SettingButton2 />],
-    //     headerContent: "Настройки",
-    // }))
-
     const handleClick = () => dispatch(renderMainContent(settingMenu))
 
     return (

@@ -3,15 +3,16 @@ import CaseButton from "../elements/CaseButton.jsx";
 import SettingsButton from "../elements/SettingsButton.jsx";
 import InfoButton from "../elements/InfoButton.jsx";
 
-const startingMenuData = {
+const _STARTING_MENU_DATA = {
     mainContent: [<CaseButton/>, <SettingsButton/>, <InfoButton/>],
     headerContent: ["Меню"],
+    scanContent: "none",
 }
 
-export let stateStack = [startingMenuData];
+export let stateStack = [_STARTING_MENU_DATA];
 
 const initialState = {
-    windowContent: startingMenuData,
+    windowContent: _STARTING_MENU_DATA,
 };
 
 
@@ -26,7 +27,7 @@ export const mainWindowSlice = createSlice({
         renderMainMenu: (state) => {
             if (stateStack.length > 1) {
                 stateStack.splice(1);
-                state.windowContent = {mainContent: startingMenuData.mainContent, headerContent: startingMenuData.headerContent};
+                state.windowContent = _STARTING_MENU_DATA;
             }
         },
         renderScanner: (state, action) => {
@@ -36,8 +37,7 @@ export const mainWindowSlice = createSlice({
         rollBack: (state) => {
             if (stateStack.length > 1) {
                 stateStack.pop()
-                const lastState = stateStack[stateStack.length - 1];
-                state.windowContent = {mainContent: lastState.mainContent, headerContent: lastState.headerContent};
+                state.windowContent = stateStack[stateStack.length - 1];
             }
         }
     }

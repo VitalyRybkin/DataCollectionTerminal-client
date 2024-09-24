@@ -27,21 +27,9 @@ function WarehouseIcon() {
 
 function WarehouseButton() {
 
-    const dispatch = useDispatch();
-
-    function handleClick() {
-
-        const menuList = [
-            <SettingButton1/>,
-            <SettingButton2/>
-        ]
-
-        dispatch(renderMainContent(menuList))
-    }
-
     return (
         <div className='setting_btn'>
-            <button onClick={() => handleClick()} className="container fonts_roboto_14_400 main_menu_btn">
+            <button className="container fonts_roboto_14_400 main_menu_btn">
                 <WarehouseIcon/>
                 Складской учет
             </button>

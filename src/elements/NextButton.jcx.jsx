@@ -1,13 +1,11 @@
-import {useState} from "react";
 
-function NextButton() {
-
-    const [isButtonDisabled, setButtonDisabled] = useState(true);
+function NextButton(props) {
 
     const style = {
-        width: 'Fill (105px)',
-        height: 'Fill (40px)',
+        width: '105px',
+        height: '40px',
         borderRadius: '40px',
+        padding: '5px 10px',
     }
 
     const disabledStyle = {
@@ -22,9 +20,8 @@ function NextButton() {
 
     return (
         <div>
-            <button className="nextButton" style={isButtonDisabled ? {...disabledStyle, ...style} : {...enabledStyle, ...style}}>
-                ПЕРЕЙТИ
-            </button>
+            <input  type="submit" value="Перейти" className="nextButton fonts_roboto_14_500" style={props.btnDisabled ? {...disabledStyle, ...style} : {...enabledStyle, ...style}} disabled={props.btnDisabled}>
+            </input>
         </div>
     )
 }

@@ -1,14 +1,9 @@
-import ButtonsList from "./ButtonsList.jsx";
-import {useDispatch, useSelector} from "react-redux";
-import {renderMainContent, stateStack} from "../reducers/MenuReducer.jsx";
-import CaseButton from "../elements/CaseButton.jsx";
-import SettingsButton from "../elements/SettingsButton.jsx";
-import InfoButton from "../elements/InfoButton.jsx";
+import MenuList from "./MenuList.jsx";
+import {useSelector} from "react-redux";
+import DocumentContent from "./DocumentContent.jsx";
 
 
 function Main() {
-
-    const dispatch = useDispatch();
 
     const style = {
         display: 'flex',
@@ -21,7 +16,8 @@ function Main() {
 
     return (
         <div className="main" style={style}>
-            <ButtonsList buttonsList={buttonsList}  />
+            <MenuList buttonsList={buttonsList} />
+            <DocumentContent />
         </div>
     )
 }
