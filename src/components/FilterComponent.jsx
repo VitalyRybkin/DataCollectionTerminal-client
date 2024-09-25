@@ -59,51 +59,91 @@ function FilterComponent() {
     firstDay = formatDate(firstDay);
     lastDay = formatDate(lastDay);
 
+    const [invoiceNumber, setInvoiceNumber] = useState("");
+    const [invoiceSender, setInvoiceSender] = useState("");
+    const [invoiceReceiver, setInvoiceReceiver] = useState("");
+
+    const invoiceNumberElem = document.getElementById("filter_invoice_number");
+    const invoiceSenderElem = document.getElementById("filter_invoice_sender");
+    const invoiceReceiverElem = document.getElementById("filter_invoice_receiver");
+
+    function handleInvoiceNumberChange() {
+        setInvoiceNumber(invoiceNumberElem.value.toString());
+    }
+
+    function handleInvoiceSenderChange() {
+        setInvoiceSender(invoiceSenderElem.value.toString());
+    }
+
+    function handleInvoiceReceiverChange() {
+        setInvoiceReceiver(invoiceReceiverElem.value.toString());
+    }
+
     useEffect(() => {
-        const inputEl = document.getElementById("invoice_number");
-        inputEl.value = "";
+        if (invoiceNumberElem !== null) invoiceNumberElem.value = "";
+        if (invoiceSenderElem !== null) invoiceNumberElem.value = "";
+        if (invoiceReceiverElem !== null) invoiceNumberElem.value = "";
     }, [displayFilter])
+
 
     return (
         <div className="filter_component" style={{display: `${displayFilter}`, width: "100%"}}>
-            <form action="" method="get" style={invoice_form}>
+            <div style={invoice_form}>
                 <div style={invoice_form_field}>
-                    <label htmlFor="invoice_number" className="fonts_roboto_13_400" style={invoice_form_label}>Номер
-                        ВЗН</label>
-                    <input type="text"
-                           className="fonts_roboto_15_400"
-                           id="invoice_number"
-                           style={invoice_form_input}/>
-
-                    <label htmlFor="invoce_sender" className="fonts_roboto_13_400"
-                           style={invoice_form_label}>Отправитель</label>
-                    <input type="text"
-                           className="fonts_roboto_15_400"
-                           id="invoce_sender"
-                           style={invoice_form_input}/>
-
-                    <label htmlFor="invoce_receiver"
+                    <label htmlFor="filter_invoice_number"
                            className="fonts_roboto_13_400"
-                           style={invoice_form_label}>Получатель</label>
+                           style={invoice_form_label}>
+                        Номер ВЗН
+                    </label>
                     <input type="text"
                            className="fonts_roboto_15_400"
-                           id="invoce_receiver"
-                           style={invoice_form_input}/>
-
-                    <label htmlFor="invoce_period" className="fonts_roboto_13_400"
-                           style={invoice_form_label}>Дата принятия (период)</label>
-                    <input type="text"
-                           className="fonts_roboto_15_400"
-                           id="invoce_period"
+                           id="filter_invoice_number"
                            style={invoice_form_input}
-                           defaultValue={`${firstDay.toString()} - ${lastDay.toString()}`} />
+                           onChange={handleInvoiceNumberChange}/>
+
+                    <label htmlFor="filter_invoice_sender" className="fonts_roboto_13_400"
+                           style={invoice_form_label}>
+                        Отправитель
+                    </label>
+                    <input type="text"
+                           className="fonts_roboto_15_400"
+                           id="filter_invoice_sender"
+                           style={invoice_form_input}
+                           onChange={handleInvoiceSenderChange}/>
+
+                    <label htmlFor="filter_invoice_receiver"
+                           className="fonts_roboto_13_400"
+                           style={invoice_form_label}>
+                        Получатель
+                    </label>
+                    <input type="text"
+                           className="fonts_roboto_15_400"
+                           id="filter_invoice_receiver"
+                           style={invoice_form_input}
+                           onChange={handleInvoiceReceiverChange}/>
+
+                    <label htmlFor="filter_invoce_period" className="fonts_roboto_13_400"
+                           style={invoice_form_label}>
+                        Дата принятия (период)
+                    </label>
+                    <input type="text"
+                           className="fonts_roboto_15_400"
+                           id="filter_invoce_period"
+                           style={invoice_form_input}
+                           defaultValue={`${firstDay.toString()} - ${lastDay.toString()}`}/>
 
                 </div>
                 <div className="invoice_form_btn_box" style={invoice_form_btn_box}>
-                    <SearchFilterButton/>
+                    <SearchFilterButton
+                        invoiceNumber={invoiceNumber}
+                        invoiceSender={invoiceSender}
+                        invoiceReceiver={invoiceReceiver}
+                        startDatePeriod={firstDay}
+                        endDatePeriod={lastDay}
+                    />
                     <CancelButton/>
                 </div>
-            </form>
+            </div>
         </div>
     )
 }

@@ -1,5 +1,6 @@
+import {searchingInvoices} from "../middleware_handlers/server_request.js";
 
-function SearchButton() {
+function SearchButton(props) {
 
     const style = {
         width: '105px',
@@ -10,9 +11,20 @@ function SearchButton() {
         color: '#FFFFFF',
     }
 
+    async function handleSearchInvoices() {
+        const getInvoices = await searchingInvoices(
+            props.invoiceNumber,
+            props.invoiceSender,
+            props.invoiceReceiver,
+            props.startDatePeriod,
+            props.endDatePeriod,
+        );
+        console.log(getInvoices);
+    }
+
     return (
         <div>
-            <input  type="submit" value="Поиск" className="nextButton fonts_roboto_14_500" style={style}>
+            <input onClick={handleSearchInvoices} type="submit" value="Поиск" className="nextButton fonts_roboto_14_500" style={style}>
             </input>
         </div>
     )
