@@ -1,4 +1,5 @@
 import ScanComponent from "./ScanComponent.jsx";
+import FilterComponent from "./FilterComponent.jsx";
 
 function DocumentContent() {
 
@@ -10,6 +11,7 @@ function DocumentContent() {
     return (
         <div style={style}>
             <ScanComponent/>
+            <FilterComponent />
         </div>
     )
 }

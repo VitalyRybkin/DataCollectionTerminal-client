@@ -1,5 +1,5 @@
 
-import {rollBack, renderMainMenu, renderScanner} from "../reducers/MenuReducer.jsx";
+import {rollBack, renderMainMenu, renderScreen} from "../reducers/MenuReducer.jsx";
 import {useDispatch} from "react-redux";
 import {scanScreen} from "../reducers/actions.jsx";
 
@@ -60,7 +60,7 @@ function FooterMenu() {
                 <MenuIcon/>
                 Меню
             </button>
-            <button onClick={() => dispatch(renderScanner(scanScreen))} className="fonts_roboto_12_500" style={btn_style}>
+            <button onClick={() => dispatch(renderScreen(scanScreen))} className="fonts_roboto_12_500" style={btn_style}>
                 <ScannerIcon/>
                 Сканер
             </button>

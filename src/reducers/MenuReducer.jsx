@@ -7,6 +7,7 @@ const _STARTING_MENU_DATA = {
     mainContent: [<CaseButton/>, <SettingsButton/>, <InfoButton/>],
     headerContent: ["Меню"],
     scanContent: "none",
+    filterContent: "none",
 }
 
 export let stateStack = [_STARTING_MENU_DATA];
@@ -30,7 +31,7 @@ export const mainWindowSlice = createSlice({
                 state.windowContent = _STARTING_MENU_DATA;
             }
         },
-        renderScanner: (state, action) => {
+        renderScreen: (state, action) => {
             stateStack.push(action.payload);
             state.windowContent = action.payload;
         },
@@ -47,7 +48,7 @@ export const {
     renderMainContent,
     renderMainMenu,
     rollBack,
-    renderScanner,
+    renderScreen,
 } = mainWindowSlice.actions;
 
 export default mainWindowSlice.reducer;

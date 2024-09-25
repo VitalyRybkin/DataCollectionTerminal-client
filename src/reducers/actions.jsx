@@ -14,24 +14,35 @@ export const settingMenu = {
     mainContent: [<SettingButton1/>, <SettingButton2 />],
     headerContent: ["Настройки"],
     scanContent: "none",
+    filterContent: "none",
 };
 
 export const caseMenu = {
     mainContent: [<WarehouseButton/>, <ManufactureButton/>],
     headerContent: ["Задачи"],
     scanContent: "none",
+    filterContent: "none",
 };
 
 export const manufactureMenu = {
     mainContent: [<InventoryButton/>, <InPlantInvoiceINButton/>, <InPlantInvoiceOUTButton/>, <LimitCardButton/>, <WorkshopNomenclatureButton/>],
     headerContent: ["Учет в производстве"],
     scanContent: "none",
+    filterContent: "none",
 };
 
 export const scanScreen = {
     mainContent: [],
     headerContent: [<CloseButton/>, "Сканировать номер объекта"],
     scanContent: "block",
+    filterContent: "none",
+}
+
+export const filterScreen = {
+    mainContent: [],
+    headerContent: [<CloseButton/>, "Фильтр ВЗН УП"],
+    scanContent: "none",
+    filterContent: "block",
 }
 
 
