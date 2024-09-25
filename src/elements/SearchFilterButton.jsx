@@ -1,6 +1,10 @@
 import {searchingInvoices} from "../middleware_handlers/server_request.js";
+import {useContext} from "react";
+import {FilteredInvoicesContext} from "../components/DocumentContent.jsx";
 
 function SearchButton(props) {
+
+    const {setFilteredInvoices} = useContext(FilteredInvoicesContext);
 
     const style = {
         width: '105px',
@@ -19,7 +23,7 @@ function SearchButton(props) {
             props.startDatePeriod,
             props.endDatePeriod,
         );
-        console.log(getInvoices);
+        setFilteredInvoices(getInvoices);
     }
 
     return (

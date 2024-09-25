@@ -1,8 +1,6 @@
 import MenuList from "./MenuList.jsx";
 import {useSelector} from "react-redux";
 import DocumentContent from "./DocumentContent.jsx";
-import FilterComponent from "./FilterComponent.jsx";
-
 
 function Main() {
 
