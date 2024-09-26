@@ -10,7 +10,7 @@ function NextButton(props) {
 
     const disabledStyle = {
         background: 'var(--colors-background-gray-500-disabled)',
-        color: '--colors-text-gray-400',
+        color: 'var(--colors-text-gray-400)',
     }
 
     const enabledStyle = {
@@ -20,8 +20,9 @@ function NextButton(props) {
 
     return (
         <div>
-            <input  type="submit" value="Перейти" className="nextButton fonts_roboto_14_500" style={props.btnDisabled ? {...disabledStyle, ...style} : {...enabledStyle, ...style}} disabled={props.btnDisabled}>
-            </input>
+            <button className="nextButton fonts_roboto_14_500" style={props.btnDisabled ? {...disabledStyle, ...style} : {...enabledStyle, ...style}} disabled={props.btnDisabled}>
+                Перейти
+            </button>
         </div>
     )
 }

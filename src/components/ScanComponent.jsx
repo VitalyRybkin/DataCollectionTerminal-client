@@ -1,4 +1,4 @@
-import NextButton from "../elements/NextButton.jcx.jsx";
+import NextButton from "../elements/NextButton.jsx";
 import CancelButton from "../elements/CancelButton.jsx";
 import {useEffect, useState} from "react";
 import {useSelector} from "react-redux";

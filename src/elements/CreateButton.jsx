@@ -1,3 +1,7 @@
+import {useDispatch} from "react-redux";
+import {renderMainContent} from "../reducers/MenuReducer.jsx";
+import {newInvoiceContent} from "../reducers/actions.jsx";
+
 function CreateIcon() {
     return (
         <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -7,6 +11,9 @@ function CreateIcon() {
 }
 
 function CreateButton() {
+
+    const dispatch = useDispatch();
+
     const style = {
         display: 'flex',
         justifyContent: 'center',
@@ -21,7 +28,7 @@ function CreateButton() {
 
     return (
         <div>
-            <button className="fonts_roboto_10_500" style={style}>
+            <button onClick={() => dispatch(renderMainContent(newInvoiceContent))} className="fonts_roboto_10_500" style={style}>
                 <CreateIcon />
                 Создать
             </button>

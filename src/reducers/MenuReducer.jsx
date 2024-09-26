@@ -9,6 +9,7 @@ const _STARTING_MENU_DATA = {
     scanContent: "none",
     filterContent: "none",
     invoicesList: "none",
+    newInvoice: "none",
 }
 
 export let stateStack = [_STARTING_MENU_DATA];

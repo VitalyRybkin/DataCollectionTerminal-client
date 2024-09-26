@@ -12,13 +12,13 @@ import SearchButton from "../elements/SearchButton.jsx";
 import CreateButton from "../elements/CreateButton.jsx";
 import HeaderMenu from "../components/HeaderMenu.jsx";
 
-
 export const settingMenu = {
     mainContent: [<SettingButton1/>, <SettingButton2 />],
     headerContent: ["Настройки"],
     scanContent: "none",
     filterContent: "none",
     invoicesList: "none",
+    newInvoice: "none",
 };
 
 export const caseMenu = {
@@ -27,6 +27,7 @@ export const caseMenu = {
     scanContent: "none",
     filterContent: "none",
     invoicesList: "none",
+    newInvoice: "none",
 };
 
 export const manufactureMenu = {
@@ -35,6 +36,7 @@ export const manufactureMenu = {
     scanContent: "none",
     filterContent: "none",
     invoicesList: "none",
+    newInvoice: "none",
 };
 
 export const scanScreen = {
@@ -43,6 +45,7 @@ export const scanScreen = {
     scanContent: "block",
     filterContent: "none",
     invoicesList: "none",
+    newInvoice: "none",
 }
 
 export const filterScreenOut = {
@@ -52,6 +55,7 @@ export const filterScreenOut = {
     filterContent: "block",
     filterType: "out",
     invoicesList: "none",
+    newInvoice: "none",
 }
 
 export const filteredInvoicesListOut = {
@@ -60,6 +64,7 @@ export const filteredInvoicesListOut = {
     scanContent: "none",
     filterContent: "none",
     invoicesList: "block",
+    newInvoice: "none",
 }
 
 export const filterScreenIn = {
@@ -69,6 +74,7 @@ export const filterScreenIn = {
     filterContent: "block",
     filterType: "in",
     invoicesList: "none",
+    newInvoice: "none",
 }
 
 export const filteredInvoicesListIn = {
@@ -77,6 +83,16 @@ export const filteredInvoicesListIn = {
     scanContent: "none",
     filterContent: "none",
     invoicesList: "block",
+    newInvoice: "none",
+}
+
+export const newInvoiceContent = {
+    mainContent: [],
+    headerContent: [<CloseButton/>, "Создание ВЗН (Расход)"],
+    scanContent: "none",
+    filterContent: "none",
+    invoicesList: "none",
+    newInvoice: "block",
 }
 
 

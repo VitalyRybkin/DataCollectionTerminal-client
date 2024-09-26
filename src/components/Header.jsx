@@ -21,7 +21,7 @@ function Header() {
     }
 
     const headerText = useSelector((state) => state.mainWindowSlice.windowContent.headerContent);
-    // const mappedHeaderText = headerText.map(item => <li key={crypto.randomUUID()} style={{flexGrow: "1"}}>{item}</li>)
+
     const mappedHeaderText = [];
     for (let i = 0; i < headerText.length; i++) {
         if (i !== 0) {
