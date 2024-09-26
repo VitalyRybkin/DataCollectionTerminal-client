@@ -4,7 +4,6 @@ import {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 import SearchFilterButton from "../elements/SearchFilterButton.jsx";
 
-
 function FilterComponent() {
 
     // TODO: move styles to module

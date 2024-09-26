@@ -9,7 +9,7 @@ function FilteredInvoicesListComponent() {
     const main_style = {
         display: `${displayInvoices}`,
         width: "100%",
-        height: '380px',
+        height: '370px',
         margin: "5px",
         border: "1px solid var(--colors-outline-gray-900-border)",
         borderRadius: "5px",

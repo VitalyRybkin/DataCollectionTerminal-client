@@ -16,11 +16,20 @@ function Header() {
     const menuStyle = {
         display: 'flex',
         alignItems: 'center',
-        gap: '10px'
+        width: '100%',
+        gap: '5px',
     }
 
     const headerText = useSelector((state) => state.mainWindowSlice.windowContent.headerContent);
-    const mappedHeaderText = headerText.map(item => <li key={crypto.randomUUID()}>{item}</li>)
+    // const mappedHeaderText = headerText.map(item => <li key={crypto.randomUUID()} style={{flexGrow: "1"}}>{item}</li>)
+    const mappedHeaderText = [];
+    for (let i = 0; i < headerText.length; i++) {
+        if (i !== 0) {
+            mappedHeaderText.push(<li key={crypto.randomUUID()} style={{flexGrow: "1"}}>{headerText[i]}</li>);
+        } else {
+            mappedHeaderText.push(<li key={crypto.randomUUID()}>{headerText[i]}</li>);
+        }
+    }
 
     return (
         <header className={'fonts_roboto_14_500 container'} style={style}>

@@ -20,8 +20,9 @@ function CancelButton() {
 
     return (
         <div>
-            <input  onClick={handleClick} type="button" value="Отмена" className="cancelButton fonts_roboto_14_500" style={style}>
-            </input>
+            <button  onClick={handleClick} className="fonts_roboto_14_500" style={style}>
+                Отмена
+            </button>
         </div>
     )
 }

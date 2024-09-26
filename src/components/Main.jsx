@@ -9,6 +9,7 @@ function Main() {
         flexDirection: 'column',
         alignItems: 'left',
         width: '100%',
+        padding: '5px 0',
     }
 
     const buttonsList  = useSelector((state) => state.mainWindowSlice.windowContent.mainContent);

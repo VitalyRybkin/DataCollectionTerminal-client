@@ -10,6 +10,7 @@ import WorkshopNomenclatureButton from "../elements/WorkshopNomenclatureButton.j
 import CloseButton from "../elements/CloseButton.jsx";
 import SearchButton from "../elements/SearchButton.jsx";
 import CreateButton from "../elements/CreateButton.jsx";
+import HeaderMenu from "../components/HeaderMenu.jsx";
 
 
 export const settingMenu = {
@@ -44,20 +45,38 @@ export const scanScreen = {
     invoicesList: "none",
 }
 
-export const filterScreen = {
+export const filterScreenOut = {
     mainContent: [],
-    headerContent: [<CloseButton/>, "Фильтр ВЗН УП"],
+    headerContent: [<CloseButton/>, "Фильтр ВЗН УП (расход)"],
     scanContent: "none",
     filterContent: "block",
+    filterType: "out",
     invoicesList: "none",
 }
 
-export const filteredInvoicesList = {
-        mainContent: [],
-        headerContent: ["ВЗН УП (Расход)", <SearchButton/>, <CreateButton/>],
-        scanContent: "none",
-        filterContent: "none",
-        invoicesList: "block",
+export const filteredInvoicesListOut = {
+    mainContent: [],
+    headerContent: ["ВЗН УП (Расход)", <HeaderMenu menu={[<SearchButton/>, <CreateButton/>]}/>],
+    scanContent: "none",
+    filterContent: "none",
+    invoicesList: "block",
+}
+
+export const filterScreenIn = {
+    mainContent: [],
+    headerContent: [<CloseButton/>, "Фильтр ВЗН УП (приход)"],
+    scanContent: "none",
+    filterContent: "block",
+    filterType: "in",
+    invoicesList: "none",
+}
+
+export const filteredInvoicesListIn = {
+    mainContent: [],
+    headerContent: ["ВЗН УП (Приход)", <HeaderMenu menu={[<CreateButton/>]}/>],
+    scanContent: "none",
+    filterContent: "none",
+    invoicesList: "block",
 }
 
 
