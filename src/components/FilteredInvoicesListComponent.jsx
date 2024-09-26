@@ -11,6 +11,7 @@ function FilteredInvoicesListComponent() {
         width: "100%",
         height: '370px',
         margin: "5px",
+        padding: "5px",
         border: "1px solid var(--colors-outline-gray-900-border)",
         borderRadius: "5px",
         overflow: 'scroll',
@@ -64,7 +65,7 @@ function FilteredInvoicesListComponent() {
 
 
     return (
-        <div style={main_style}>
+        <div  className="filter_list_component" style={main_style}>
             <ul>
             {renderList}
             </ul>

@@ -3,6 +3,7 @@ import CancelButton from "../elements/CancelButton.jsx";
 import {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 import SearchFilterButton from "../elements/SearchFilterButton.jsx";
+import style from "./InputStyle.module.css";
 
 function FilterComponent() {
 
@@ -16,32 +17,6 @@ function FilterComponent() {
         display: "flex",
         justifyContent: "center",
         gap: "10px"
-    }
-
-    const invoice_form_field = {
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        gap: "4px",
-        marginBottom: "10px",
-    }
-
-    const invoice_form_input = {
-        width: "100%",
-        height: "37px",
-        borderRadius: "5px",
-        padding: "5px",
-        border: "1px solid var(--colors-outline-gray-900-border)",
-        color: "var(--colors-outline-gray-900-border)",
-    }
-
-    const invoice_form_label = {
-        marginLeft: "15px",
-        marginBottom: "-15px",
-        padding: "3px",
-        width: "fit-content",
-        backgroundColor: "#FFFFFF",
-        zIndex: "100"
     }
 
     const displayFilter  = useSelector((state) => state.mainWindowSlice.windowContent.filterContent);
@@ -90,50 +65,44 @@ function FilterComponent() {
     return (
         <div className="filter_component" style={{display: `${displayFilter}`, width: "100%"}}>
             <div style={invoice_form}>
-                <div style={invoice_form_field}>
+                <div  className={style.invoice_form_field}>
                     <label htmlFor="filter_invoice_number"
-                           className="fonts_roboto_13_400"
-                           style={invoice_form_label}>
+                           className={`fonts_roboto_13_400 ${style.invoice_form_label}`}>
                         Номер ВЗН
                     </label>
                     <input type="text"
-                           className="fonts_roboto_15_400"
+                           className={`fonts_roboto_15_400 ${style.invoice_form_input}`}
                            id="filter_invoice_number"
-                           style={invoice_form_input}
                            onChange={handleInvoiceNumberChange}/>
 
-                    <label htmlFor="filter_invoice_sender" className="fonts_roboto_13_400"
-                           style={invoice_form_label}>
+                    <label htmlFor="filter_invoice_sender"
+                           className={`fonts_roboto_13_400 ${style.invoice_form_label}`}>
                         Отправитель
                     </label>
                     <input type="text"
-                           className="fonts_roboto_15_400"
+                           className={`fonts_roboto_15_400 ${style.invoice_form_input}`}
                            id="filter_invoice_sender"
-                           style={invoice_form_input}
                            onChange={handleInvoiceSenderChange}/>
 
                     <label htmlFor="filter_invoice_receiver"
-                           className="fonts_roboto_13_400"
-                           style={invoice_form_label}>
+                           className={`fonts_roboto_13_400 ${style.invoice_form_label}`}>
                         Получатель
                     </label>
                     <input type="text"
-                           className="fonts_roboto_15_400"
+                           className={`fonts_roboto_15_400 ${style.invoice_form_input}`}
                            id="filter_invoice_receiver"
-                           style={invoice_form_input}
                            onChange={handleInvoiceReceiverChange}/>
 
-                    <label htmlFor="filter_invoce_period" className="fonts_roboto_13_400"
-                           style={invoice_form_label}>
+                    <label htmlFor="filter_invoce_period"
+                           className={`fonts_roboto_13_400 ${style.invoice_form_label}`}>
                         Дата принятия (период)
                     </label>
 
                     {/*TODO: search period range picker*/}
 
                     <input type="text"
-                           className="fonts_roboto_15_400"
+                           className={`fonts_roboto_15_400 ${style.invoice_form_input}`}
                            id="filter_invoce_period"
-                           style={invoice_form_input}
                            defaultValue={`${firstDay.toString()} - ${lastDay.toString()}`}/>
 
                 </div>
