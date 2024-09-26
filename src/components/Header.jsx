@@ -8,7 +8,6 @@ function Header() {
         alignItems: 'center',
         height: '33px',
         width: '100%',
-        marginBottom: '12px',
         backgroundColor: 'var(--colors-background-blue-300)',
         color: 'var(--colors-text-black-300)',
         borderBottom: '1px solid var(--colors-outline-gray-900-border)',

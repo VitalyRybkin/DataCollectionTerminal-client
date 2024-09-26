@@ -20,7 +20,7 @@ function SettingsIcon() {
 function SettingsButton() {
 
     const dispatch = useDispatch();
-    const handleClick = () => dispatch(renderMainContent(settingMenu))
+    const handleClick = () => dispatch(renderMainContent(settingMenu));
 
     return (
         <div className='setting_btn'>

@@ -7,6 +7,8 @@ import SearchFilterButton from "../elements/SearchFilterButton.jsx";
 
 function FilterComponent() {
 
+    // TODO: move styles to module
+
     const invoice_form = {
         padding: "10px",
     }
@@ -44,7 +46,6 @@ function FilterComponent() {
     }
 
     const displayFilter  = useSelector((state) => state.mainWindowSlice.windowContent.filterContent);
-    const [invoices, setInvoices] = useState([]);
 
     const now = new Date();
     let firstDay = new Date(now.getFullYear(), now.getMonth(), 1);
@@ -127,6 +128,9 @@ function FilterComponent() {
                            style={invoice_form_label}>
                         Дата принятия (период)
                     </label>
+
+                    {/*TODO: search period range picker*/}
+
                     <input type="text"
                            className="fonts_roboto_15_400"
                            id="filter_invoce_period"

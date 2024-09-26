@@ -8,6 +8,8 @@ import InPlantInvoiceOUTButton from "../elements/InPlantInvoiceOUT.jsx";
 import LimitCardButton from "../elements/LimitCardButton.jsx";
 import WorkshopNomenclatureButton from "../elements/WorkshopNomenclatureButton.jsx";
 import CloseButton from "../elements/CloseButton.jsx";
+import SearchButton from "../elements/SearchButton.jsx";
+import CreateButton from "../elements/CreateButton.jsx";
 
 
 export const settingMenu = {
@@ -15,6 +17,7 @@ export const settingMenu = {
     headerContent: ["Настройки"],
     scanContent: "none",
     filterContent: "none",
+    invoicesList: "none",
 };
 
 export const caseMenu = {
@@ -22,6 +25,7 @@ export const caseMenu = {
     headerContent: ["Задачи"],
     scanContent: "none",
     filterContent: "none",
+    invoicesList: "none",
 };
 
 export const manufactureMenu = {
@@ -29,6 +33,7 @@ export const manufactureMenu = {
     headerContent: ["Учет в производстве"],
     scanContent: "none",
     filterContent: "none",
+    invoicesList: "none",
 };
 
 export const scanScreen = {
@@ -36,6 +41,7 @@ export const scanScreen = {
     headerContent: [<CloseButton/>, "Сканировать номер объекта"],
     scanContent: "block",
     filterContent: "none",
+    invoicesList: "none",
 }
 
 export const filterScreen = {
@@ -43,7 +49,15 @@ export const filterScreen = {
     headerContent: [<CloseButton/>, "Фильтр ВЗН УП"],
     scanContent: "none",
     filterContent: "block",
+    invoicesList: "none",
 }
 
+export const filteredInvoicesList = {
+        mainContent: [],
+        headerContent: ["ВЗН УП (Расход)", <SearchButton/>, <CreateButton/>],
+        scanContent: "none",
+        filterContent: "none",
+        invoicesList: "block",
+}
 
 

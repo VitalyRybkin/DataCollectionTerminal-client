@@ -1,10 +1,11 @@
 import {searchingInvoices} from "../middleware_handlers/server_request.js";
 import {useContext} from "react";
 import {FilteredInvoicesContext} from "../components/DocumentContent.jsx";
+import {renderMainContent} from "../reducers/MenuReducer.jsx";
+import {filteredInvoicesList} from "../reducers/actions.jsx";
+import {useDispatch} from "react-redux";
 
 function SearchButton(props) {
-
-    const {setFilteredInvoices} = useContext(FilteredInvoicesContext);
 
     const style = {
         width: '105px',
@@ -15,6 +16,9 @@ function SearchButton(props) {
         color: '#FFFFFF',
     }
 
+    const [filteredInvoices, setFilteredInvoices] = useContext(FilteredInvoicesContext);
+    const dispatch = useDispatch();
+
     async function handleSearchInvoices() {
         const getInvoices = await searchingInvoices(
             props.invoiceNumber,
@@ -23,7 +27,9 @@ function SearchButton(props) {
             props.startDatePeriod,
             props.endDatePeriod,
         );
+        filteredInvoices.length = 0;
         setFilteredInvoices(getInvoices);
+        dispatch(renderMainContent(filteredInvoicesList))
     }
 
     return (
