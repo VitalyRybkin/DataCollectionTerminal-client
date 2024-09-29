@@ -1,3 +1,13 @@
+.invoice_form {
+    padding: 10px;
+}
+
+.invoice_form_btn_box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
 .invoice_form_label {
     margin-left: 15px;
     margin-bottom: -15px;

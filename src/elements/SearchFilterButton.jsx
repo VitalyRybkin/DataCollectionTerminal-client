@@ -28,6 +28,7 @@ function SearchButton(props) {
             props.startDatePeriod,
             props.endDatePeriod,
         );
+
         filteredInvoices.length = 0;
         setFilteredInvoices(getInvoices);
         dispatch(renderMainContent(filterType === 'out' ? filteredInvoicesListOut : filteredInvoicesListIn))

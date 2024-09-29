@@ -7,19 +7,15 @@ import style from "./InputStyle.module.css";
 
 function FilterComponent() {
 
-    // TODO: move styles to module
-
-    const invoice_form = {
-        padding: "10px",
-    }
-
-    const invoice_form_btn_box = {
-        display: "flex",
-        justifyContent: "center",
-        gap: "10px"
-    }
-
     const displayFilter  = useSelector((state) => state.mainWindowSlice.windowContent.filterContent);
+
+    const [invoiceNumber, setInvoiceNumber] = useState("");
+    const [invoiceSender, setInvoiceSender] = useState("");
+    const [invoiceReceiver, setInvoiceReceiver] = useState("");
+
+    const invoiceNumberElem = document.getElementById("filter_invoice_number");
+    const invoiceSenderElem = document.getElementById("filter_invoice_sender");
+    const invoiceReceiverElem = document.getElementById("filter_invoice_receiver");
 
     const now = new Date();
     let firstDay = new Date(now.getFullYear(), now.getMonth(), 1);
@@ -34,14 +30,6 @@ function FilterComponent() {
 
     firstDay = formatDate(firstDay);
     lastDay = formatDate(lastDay);
-
-    const [invoiceNumber, setInvoiceNumber] = useState("");
-    const [invoiceSender, setInvoiceSender] = useState("");
-    const [invoiceReceiver, setInvoiceReceiver] = useState("");
-
-    const invoiceNumberElem = document.getElementById("filter_invoice_number");
-    const invoiceSenderElem = document.getElementById("filter_invoice_sender");
-    const invoiceReceiverElem = document.getElementById("filter_invoice_receiver");
 
     function handleInvoiceNumberChange() {
         setInvoiceNumber(invoiceNumberElem.value.toString());
@@ -64,7 +52,7 @@ function FilterComponent() {
 
     return (
         <div className="filter_component" style={{display: `${displayFilter}`, width: "100%"}}>
-            <div style={invoice_form}>
+            <div className={style.invoice_form}>
                 <div  className={style.invoice_form_field}>
                     <label htmlFor="filter_invoice_number"
                            className={`fonts_roboto_13_400 ${style.invoice_form_label}`}>
@@ -106,7 +94,7 @@ function FilterComponent() {
                            defaultValue={`${firstDay.toString()} - ${lastDay.toString()}`}/>
 
                 </div>
-                <div className="invoice_form_btn_box" style={invoice_form_btn_box}>
+                <div className={`invoice_form_btn_box ${style.invoice_form_btn_box}`}>
                     <SearchFilterButton
                         invoiceNumber={invoiceNumber}
                         invoiceSender={invoiceSender}

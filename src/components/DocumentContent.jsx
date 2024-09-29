@@ -2,6 +2,7 @@ import ScanComponent from "./ScanComponent.jsx";
 import FilterComponent from "./FilterComponent.jsx";
 import {createContext, useState} from "react";
 import FilteredInvoicesListComponent from "./FilteredInvoicesListComponent.jsx";
+import CreateInvoiceComponent from "./CreateInvoiceComponent.jsx";
 
 export const FilteredInvoicesContext = createContext(null);
 
@@ -21,6 +22,7 @@ function DocumentContent() {
                 <ScanComponent/>
                 <FilterComponent />
                 <FilteredInvoicesListComponent />
+                <CreateInvoiceComponent />
             </FilteredInvoicesContext.Provider>
         </div>
     )

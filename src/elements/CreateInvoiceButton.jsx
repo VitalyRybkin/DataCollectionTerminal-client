@@ -1,5 +1,8 @@
+import {createInvoice} from "../middleware_handlers/server_request.js";
+import {renderMainContent} from "../reducers/MenuReducer.jsx";
+import {filteredInvoicesListIn, filteredInvoicesListOut} from "../reducers/actions.jsx";
 
-function CreateInvoiceButton() {
+function CreateInvoiceButton(props) {
 
     const style = {
         width: '105px',
@@ -10,9 +13,16 @@ function CreateInvoiceButton() {
         color: '#FFFFFF',
     }
 
+    async function handleCreateInvoice() {
+        const getInvoices = await createInvoice(props);
+        // filteredInvoices.length = 0;
+        // setFilteredInvoices(getInvoices);
+        // dispatch(renderMainContent(filterType === 'out' ? filteredInvoicesListOut : filteredInvoicesListIn))
+    }
+
     return (
         <div>
-            <button className="nextButton fonts_roboto_14_500" style={style}>
+            <button onClick={handleCreateInvoice} className="nextButton fonts_roboto_14_500" style={style}>
                 Создать
             </button>
         </div>
