@@ -16,10 +16,13 @@ export async function searchingInvoices(
 }
 
 export async function createInvoice(props) {
+    let data = ''
 
-    return await axios.post("http://localhost:3000/new-invoice", JSON.stringify(props.fields), {headers:{'Content-Type': 'application/json'}})
+    await axios.post("http://localhost:3000/new-invoice", JSON.stringify(props.fields), {headers:{'Content-Type': 'application/json'}})
         .then((response) => {
-            response.data
+            data = response.data
         })
         .catch(error => console.log(error));
+
+    return data;
 }

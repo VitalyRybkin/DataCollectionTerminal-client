@@ -1,6 +1,3 @@
-import {useDispatch} from "react-redux";
-import {renderMainContent} from "../reducers/MenuReducer.jsx";
-import {createNewInvoice} from "../reducers/actions.jsx";
 
 function CreateIcon() {
     return (
@@ -10,9 +7,7 @@ function CreateIcon() {
     )
 }
 
-function CreateButton() {
-
-    const dispatch = useDispatch();
+function CreateCardButton(props) {
 
     const style = {
         display: 'flex',
@@ -28,12 +23,12 @@ function CreateButton() {
 
     return (
         <div>
-            <button onClick={() => dispatch(renderMainContent(createNewInvoice))} className="fonts_roboto_10_500" style={style}>
-                <CreateIcon />
+            <button className="fonts_roboto_10_500" style={style}>
+                <CreateIcon/>
                 Создать
             </button>
         </div>
     )
 }
 
-export default CreateButton
+export default CreateCardButton;

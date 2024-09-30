@@ -36,8 +36,8 @@ function SearchButton(props) {
 
     return (
         <div>
-            <input onClick={handleSearchInvoices} type="submit" value="Поиск" className="nextButton fonts_roboto_14_500" style={style}>
-            </input>
+            <button onClick={handleSearchInvoices} className="fonts_roboto_14_500" style={style}>Поиск
+            </button>
         </div>
     )
 }

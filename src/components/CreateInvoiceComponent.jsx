@@ -1,8 +1,9 @@
 import {useSelector} from "react-redux";
 import style from "./InputStyle.module.css";
 import CancelButton from "../elements/CancelButton.jsx";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import CreateInvoiceButton from "../elements/CreateInvoiceButton.jsx";
+import {NewInvoiceContext} from "./DocumentContent.jsx";
 
 function CreateInvoiceComponent() {
 
@@ -15,14 +16,16 @@ function CreateInvoiceComponent() {
     const invoiceAcceptanceResponsibleElem = document.getElementById("new_invoice_acceptance_responsible");
     const invoiceDateElem = document.getElementById("new_invoice_date");
 
-    const [fieldsValues, setFieldsValues] = useState({
-        "invoiceNumberElem": "",
-        "invoiceSenderElem": "",
-        "invoiceReceiverElem": "",
-        "invoiceGiveOutResponsibleElem": "",
-        "invoiceAcceptanceResponsibleElem": "",
-        "invoiceDateElem": "",
-    });
+    // const [fieldsValues, setFieldsValues] = useState({
+    //     "invoiceNumberElem": "",
+    //     "invoiceSenderElem": "",
+    //     "invoiceReceiverElem": "",
+    //     "invoiceGiveOutResponsibleElem": "",
+    //     "invoiceAcceptanceResponsibleElem": "",
+    //     "invoiceDateElem": "",
+    // });
+
+    const [fieldsValues, setFieldsValues] = useContext(NewInvoiceContext);
 
     useEffect(() => {
         if (invoiceNumberElem !== null) invoiceNumberElem.value = "";
@@ -106,7 +109,7 @@ function CreateInvoiceComponent() {
 
                 </div>
                 <div className={`invoice_form_btn_box ${style.invoice_form_btn_box}`}>
-                    <CreateInvoiceButton fields={fieldsValues}/>
+                    <CreateInvoiceButton />
                     <CancelButton/>
                 </div>
             </div>

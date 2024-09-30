@@ -10,6 +10,7 @@ const _STARTING_MENU_DATA = {
     filterContent: "none",
     invoicesList: "none",
     newInvoice: "none",
+    newInvoiceForm: "none",
 }
 
 export let stateStack = [_STARTING_MENU_DATA];

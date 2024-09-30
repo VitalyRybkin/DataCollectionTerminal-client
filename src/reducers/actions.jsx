@@ -11,6 +11,7 @@ import CloseButton from "../elements/CloseButton.jsx";
 import SearchButton from "../elements/SearchButton.jsx";
 import CreateButton from "../elements/CreateButton.jsx";
 import HeaderMenu from "../components/HeaderMenu.jsx";
+import BurgerButton from "../elements/BurgerButton.jsx";
 
 export const settingMenu = {
     mainContent: [<SettingButton1/>, <SettingButton2 />],
@@ -19,6 +20,7 @@ export const settingMenu = {
     filterContent: "none",
     invoicesList: "none",
     newInvoice: "none",
+    newInvoiceForm: "none",
 };
 
 export const caseMenu = {
@@ -28,6 +30,7 @@ export const caseMenu = {
     filterContent: "none",
     invoicesList: "none",
     newInvoice: "none",
+    newInvoiceForm: "none",
 };
 
 export const manufactureMenu = {
@@ -37,6 +40,7 @@ export const manufactureMenu = {
     filterContent: "none",
     invoicesList: "none",
     newInvoice: "none",
+    newInvoiceForm: "none",
 };
 
 export const scanScreen = {
@@ -46,6 +50,7 @@ export const scanScreen = {
     filterContent: "none",
     invoicesList: "none",
     newInvoice: "none",
+    newInvoiceForm: "none",
 }
 
 export const filterScreenOut = {
@@ -56,6 +61,7 @@ export const filterScreenOut = {
     filterType: "out",
     invoicesList: "none",
     newInvoice: "none",
+    newInvoiceForm: "none",
 }
 
 export const filteredInvoicesListOut = {
@@ -65,6 +71,7 @@ export const filteredInvoicesListOut = {
     filterContent: "none",
     invoicesList: "block",
     newInvoice: "none",
+    newInvoiceForm: "none",
 }
 
 export const filterScreenIn = {
@@ -75,6 +82,7 @@ export const filterScreenIn = {
     filterType: "in",
     invoicesList: "none",
     newInvoice: "none",
+    newInvoiceForm: "none",
 }
 
 export const filteredInvoicesListIn = {
@@ -84,15 +92,25 @@ export const filteredInvoicesListIn = {
     filterContent: "none",
     invoicesList: "block",
     newInvoice: "none",
+    newInvoiceForm: "none",
 }
 
-export const newInvoiceContent = {
+export const createNewInvoice = {
     mainContent: [],
     headerContent: [<CloseButton/>, "Создание ВЗН (Расход)"],
     scanContent: "none",
     filterContent: "none",
     invoicesList: "none",
     newInvoice: "block",
+    newInvoiceForm: "none",
 }
 
-
+export const newInvoiceContent = {
+    mainContent: [],
+    headerContent: ["ВЗН №15 (Расход)", <HeaderMenu menu={[<BurgerButton/>]}/>],
+    scanContent: "none",
+    filterContent: "none",
+    invoicesList: "none",
+    newInvoice: "none",
+    newInvoiceForm: "block",
+}

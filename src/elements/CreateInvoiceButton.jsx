@@ -1,8 +1,11 @@
 import {createInvoice} from "../middleware_handlers/server_request.js";
 import {renderMainContent} from "../reducers/MenuReducer.jsx";
-import {filteredInvoicesListIn, filteredInvoicesListOut} from "../reducers/actions.jsx";
+import {newInvoiceContent} from "../reducers/actions.jsx";
+import {useDispatch} from "react-redux";
+import {useContext} from "react";
+import {NewInvoiceContext} from "../components/DocumentContent.jsx";
 
-function CreateInvoiceButton(props) {
+function CreateInvoiceButton() {
 
     const style = {
         width: '105px',
@@ -13,11 +16,15 @@ function CreateInvoiceButton(props) {
         color: '#FFFFFF',
     }
 
+    const dispatch = useDispatch();
+    const [newInvoiceData, setNewInvoiceData] = useContext(NewInvoiceContext);
+
     async function handleCreateInvoice() {
-        const getInvoices = await createInvoice(props);
-        // filteredInvoices.length = 0;
-        // setFilteredInvoices(getInvoices);
-        // dispatch(renderMainContent(filterType === 'out' ? filteredInvoicesListOut : filteredInvoicesListIn))
+        const getInvoices = await createInvoice(newInvoiceData);
+
+        if (getInvoices.message === 'SUCCESS') {
+            dispatch(renderMainContent(newInvoiceContent));
+        }
     }
 
     return (
